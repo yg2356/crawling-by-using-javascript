@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let code=`
+        %0A%20%20%20%20%20%20%20%20for%20(let%20i%20%3D%2046%3B%20i%20%3C%3D%2052%3B%20i%2B%2B)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20img%20%3D%20document.createElement('img')%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20img.setAttribute('src'%2C%20'https%3A%2F%2Fwww.apple.com%2F105%2Fmedia%2Fus%2Fairpods-pro%2F2019%2F1299e2f5_9206_4470_b28e_08307a42f19b%2Fanim%2Fsequence%2Flarge%2F09-scoop-turn%2F00'%20%2B%20i%20%2B%20'.jpg')%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.body.appendChild(img)%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20
+        `
+        eval(decodeURIComponent(code))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<html>
+<!--http://54.180.201.175:3000/zzz-->
+
+<head>
+    <title>444 </title>
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-size: 20px;
+        }
+
+        div button {
+            color: pink;
+            opacity: 0.5;
+        }
+
+        div#d {
+            border: 3px solid red;
+            background: green;
+            padding: 20px;
+        }
+    </style>
+    <script>
+        function dot(x, y, color) {
+            let btn = document.createElement('div');
+            btn.style.background = color;
+            btn.style.width = '10px';
+            btn.style.height = '100px';
+            btn.style.position = 'absolute';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+            document.querySelector('body').appendChild(btn)
+            return btn;
+        }
+
+       
+        window.addEventListener('load', async function () {
+
+            let x = 100;
+            let y = 200;
+            let i = 0;
+            let j = 0;
+            let color = ['white', 'red', 'blue', 'green', 'yellow']
+            for (i = 0; i < 100; i++) {
+                let d = dot(x, y + i, color[0]);
+                let d1 = dot(x, y + i, color[1]);
+                let d2 = dot(x, y + i, color[2]);
+                let r = 0;
+                let r1 = 0;
+                let r2 = 0;
+                async function tick() {
+                    let ret = await new Promise(function (resolve, reject) {
+                        let val = parseInt(d.style.left.split('p')[0]) + 1;
+                         d.style.left = val + 'px';
+                        r++;
+                        d.style.transform = 'rotate(' + r + 'deg)';
+                        if (val < 380) {
+                            setTimeout(tick, 1);
+                            
+                        }
+                        resolve(false);
+                       
+                    })
+                    return ret;
+                }
+
+                async function tick1() {
+                    let ret1 = await new Promise(function (resolve, reject) {
+                        let val1 = parseInt(d1.style.left.split('p')[0]) + 1;
+                         d1.style.left = val1 + 'px';
+                        r1++;
+                        d1.style.transform = 'rotate(' + r1 + 'deg)';
+                        if (val1 < 360) {
+                            setTimeout(tick1, 1);
+                        }
+                        resolve(false);                       
+                    })
+                    return ret1;
+                }
+
+                async function tick2() {
+                    let ret2 = await new Promise(function (resolve, reject) {
+                        let val2 = parseInt(d1.style.left.split('p')[0]) + 1;
+                        d2.style.left = val2 + 'px';
+                        r2++;
+                        d2.style.transform = 'rotate(' + r2 + 'deg)';
+                        if (val2 < 450) {
+                            setTimeout(tick2, 1);
+                        }
+                        resolve(false);                       
+                    })
+                    return ret2;
+                }
+
+                async function play(){
+                  await tick();
+                  await tick1();
+                  await tick2();                  
+                }
+                play();
+                
+                
+                // if(false === await tick()){
+
+                //     y= y+i;
+                //     i = 0;
+                //     j++;
+                // }
+
+                //console.log(y, i, flag, j);
+            }
+
+            // btn.addEventListener('mouseover', function () {
+            //     btn.style.transform = 'rotate(90deg)'
+            //     btn.style.transition = '5s'
+            //     btn.style.fontSize = '30px'
+            // })
+            // console.log(1);
+
+            //     for (let i = 0; i < 1000; i++) {
+            //         let btn = document.createElement('button');
+            //         btn.innerText = "a";
+            //         btn.setAttribute('class', 'aasdf');
+            //         document.querySelector('body').appendChild(btn)
+            //         btn.addEventListener('mouseover', function() {
+            //             btn.style.transform = 'rotate(90deg)'
+            //             btn.style.transition = '5s'
+            //             btn.style.fontSize = '30px'
+            //         })
+            //     }
+
+            // document.querySelector("#def").addEventListener('click', function () {
+            //     setTimeout(function () {
+            //         document.querySelector("#pepe").remove();
+            //         setTimeout(function () {
+            //             document.querySelector("#def").remove();
+            //         }, 2000);
+            //     }, 3000);
+            // });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="d">
+        sadf
+        <button id="abc" class="gg">
+            얘
+        </button>
+
+        <button id="def" class="gg">
+            456
+        </button>
+
+        <img id="pepe" class="gg" width="45"
+            src="https://img1.daumcdn.net/thumb/S272x320/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F270F6B3A567D7EA706" />
+    </div>
+</body>
+
+</html>
