@@ -1,5 +1,13 @@
 const fetch = require('node-fetch');
+const fs = require('fs');
 
+async function mkf(filename, content) {
+    await new Promise(function (resolve, reject) {
+        fs.writeFile(filename, content, function (err) {
+            resolve();
+        })
+    })
+}
 
 async function mainlogic(pageno) {
     let res = await fetch('https://www.clien.net/service/board/image?&od=T31&category=0&po=' + pageno);
@@ -18,6 +26,7 @@ async function mainlogic(pageno) {
 
             let image = await fetch(url);
             let cnt = await image.arrayBuffer();
+            await mkf(filename, Buffer.from(cnt));
             console.log(filename);
         }
     }
